@@ -137,7 +137,7 @@ console.log(hashmap.getCapacity());
 
 // let load_factor = map.getLoadFactor();
 // let capacity = map.getCapacity();
-const mapTwo = new HashMap(0.75, 16, test);
+const mapTwo = new HashMap(0.75, 16, {("key1","val1"),(key2,val2)});
 console.log(mapTwo);
 console.log(mapTwo.getCapacity());
 console.log(mapTwo.getLoadFactor());
