@@ -1,7 +1,37 @@
 class HashMap {
   load_factor = 0.75;
-  capacity = 16;
-  map = new Map();
+  capacity;
+  map;
+
+  constructor(load_factor, capacity, map) {
+    this.load_factor = load_factor;
+    this.capacity = capacity;
+    this.map = new Map();
+  }
+
+  setMap(map) {
+    this.map = new Map();
+  }
+
+  getMap() {
+    return this.map;
+  }
+
+  setLoadFactor(load_factor) {
+    this.load_factor = load_factor;
+  }
+
+  getLoadFactor() {
+    return this.load_factor;
+  }
+
+  setCapacity(capacity) {
+    this.capacity = capacity;
+  }
+
+  getCapacity() {
+    return this.capacity;
+  }
 
   set(key, value) {
     if (this.map.set(key) == value) {
@@ -100,3 +130,16 @@ console.log(hashmap.hash("string"));
 hashmap.getValues(test);
 hashmap.getKeys(test);
 hashmap.getEntries(test);
+// console.log(hashmap.capacity);
+
+hashmap.setCapacity(16);
+console.log(hashmap.getCapacity());
+
+// let load_factor = map.getLoadFactor();
+// let capacity = map.getCapacity();
+const mapTwo = new HashMap(0.75, 16, test);
+console.log(mapTwo);
+console.log(mapTwo.getCapacity());
+console.log(mapTwo.getLoadFactor());
+mapTwo.setMap(test);
+console.log(mapTwo.getMap());
