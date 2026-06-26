@@ -1,25 +1,7 @@
 class HashMap {
-  constructor(load_factor, capacity, map) {
-    this.map = new Map();
-    this._load_factor = load_factor;
-    this._capacity = capacity;
-  }
-
-  set load_factor(load_factor) {
-    this._load_factor = load_factor;
-  }
-
-  set capacity(capacity) {
-    this._capacity = capacity;
-  }
-
-  get load_factor() {
-    return this._load_factor;
-  }
-
-  get capacity() {
-    return this._capacity;
-  }
+  load_factor = 0.75;
+  capacity = 16;
+  map = new Map();
 
   set(key, value) {
     if (this.map.set(key) == value) {
@@ -43,18 +25,25 @@ class HashMap {
     this.map.clear();
   }
 
-  keys() {
-    return this.map.keys();
+  getKeys(map) {
+    for (const key of map) {
+      console.log(key);
+    }
   }
 
-  values() {
-    return this.map.values();
+  getValues(map) {
+    for (const value of map) {
+      console.log(value);
+    }
   }
 
-  entries() {
-    return this.map.entries();
+  getEntries(map) {
+    for (const [key, value] of map) {
+      console.log(key, value);
+    }
   }
-  get(key) {
+
+  getKey(key) {
     if (!key) return null;
     return this.map.get(key);
   }
@@ -71,8 +60,8 @@ class HashMap {
   }
 }
 
-const test = new HashMap(0.75, 16);
-console.log(test.hash("string"));
+const test = new Map();
+// console.log(test.hash("string"));
 
 test.set("apple", "red");
 test.set("banana", "yellow");
@@ -87,4 +76,27 @@ test.set("jacket", "blue");
 test.set("kite", "pink");
 test.set("lion", "golden");
 
-console.log(test.length());
+console.log(test.size);
+
+test.set("moon", "silver");
+test.forEach((key, val) => {
+  console.log(key, val);
+});
+
+const hashmap = new HashMap();
+hashmap.map = test;
+console.log(hashmap.map);
+console.log(hashmap.load_factor, hashmap.capacity);
+
+console.log(hashmap.map.has("apple"));
+console.log(hashmap.map.values());
+for (const value of hashmap.map.values()) {
+  console.log(value);
+}
+
+hashmap.getEntries(test);
+console.log(hashmap.getKey("apple"));
+console.log(hashmap.hash("string"));
+hashmap.getValues(test);
+hashmap.getKeys(test);
+hashmap.getEntries(test);
